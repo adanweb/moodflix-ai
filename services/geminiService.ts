@@ -2,11 +2,14 @@ import { GoogleGenAI, GenerateContentResponse, Chat } from "@google/genai";
 import { MOVIE_LIST } from '../constants/movies';
 import { MovieRecommendation, ChatMessage } from '../types';
 
-if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable not set");
+const apiKey =
+import.metam.env.VITE_API_KEY;
+
+if (!apiKey) {
+    throw new Error("VITE_API_KEY environment variable not set");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey });
 
 function parseJsonFromText(text: string): any {
   let jsonStr = text.trim();
