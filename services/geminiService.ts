@@ -2,11 +2,10 @@ import { GoogleGenAI, GenerateContentResponse, Chat } from "@google/genai";
 import { MOVIE_LIST } from '../constants/movies';
 import { MovieRecommendation, ChatMessage } from '../types';
 
-const apiKey =
-import.metam.env.VITE_API_KEY;
+const apiKey = import.meta.env.VITE_API_KEY;
 
 if (!apiKey) {
-    throw new Error("VITE_API_KEY environment variable not set");
+  throw new Error("VITE_API_KEY environment variable not set");
 }
 
 const ai = new GoogleGenAI({ apiKey });
